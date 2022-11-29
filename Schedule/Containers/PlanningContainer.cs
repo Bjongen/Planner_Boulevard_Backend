@@ -1,10 +1,10 @@
-using System;
-using System.Collections.Generic;
-using Scheduling.Dtos;
+﻿using Schedule.Dtos;
+using Schedule.Interfaces;
 
-namespace Scheduling;
+namespace Schedule;
 
 public class PlanningContainer : IPlanningContainer
+
 {
     public List<PlanningDto> _plannings;
     private IPlanningDal _planningDal;

@@ -2,11 +2,9 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Planner_Boulevard_Backend", "Planner_Boulevard_Backend\Planner_Boulevard_Backend.csproj", "{447DF003-6219-49B6-8389-AC81E4BA1126}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Login", "Login\Login.csproj", "{00C1EAF6-6A41-4FCF-81A2-9D4F785858C7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{6267812C-4707-4B3F-9652-6AC53AF703DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scheduling", "Scheduling\Scheduling.csproj", "{E009BCAA-699C-4DBC-9A27-9CDDF40FCA9F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Worked", "Worked\Worked.csproj", "{AEEDFF03-E19D-4000-90EC-DC4775BA0962}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Schedule", "Schedule\Schedule.csproj", "{C4E69C3F-DC94-4664-B3E1-5E3DEF0EE9DE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,17 +16,13 @@ Global
 		{447DF003-6219-49B6-8389-AC81E4BA1126}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{447DF003-6219-49B6-8389-AC81E4BA1126}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{447DF003-6219-49B6-8389-AC81E4BA1126}.Release|Any CPU.Build.0 = Release|Any CPU
-		{00C1EAF6-6A41-4FCF-81A2-9D4F785858C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{00C1EAF6-6A41-4FCF-81A2-9D4F785858C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{00C1EAF6-6A41-4FCF-81A2-9D4F785858C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{00C1EAF6-6A41-4FCF-81A2-9D4F785858C7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E009BCAA-699C-4DBC-9A27-9CDDF40FCA9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E009BCAA-699C-4DBC-9A27-9CDDF40FCA9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E009BCAA-699C-4DBC-9A27-9CDDF40FCA9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E009BCAA-699C-4DBC-9A27-9CDDF40FCA9F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AEEDFF03-E19D-4000-90EC-DC4775BA0962}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AEEDFF03-E19D-4000-90EC-DC4775BA0962}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AEEDFF03-E19D-4000-90EC-DC4775BA0962}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AEEDFF03-E19D-4000-90EC-DC4775BA0962}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6267812C-4707-4B3F-9652-6AC53AF703DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6267812C-4707-4B3F-9652-6AC53AF703DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6267812C-4707-4B3F-9652-6AC53AF703DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6267812C-4707-4B3F-9652-6AC53AF703DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4E69C3F-DC94-4664-B3E1-5E3DEF0EE9DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4E69C3F-DC94-4664-B3E1-5E3DEF0EE9DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4E69C3F-DC94-4664-B3E1-5E3DEF0EE9DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4E69C3F-DC94-4664-B3E1-5E3DEF0EE9DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

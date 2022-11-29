@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
-using Scheduling;
-using Scheduling.Dtos;
+using Schedule;
+using Schedule.Dtos;
+using Schedule.Interfaces;
 
 namespace Planner_Boulevard_Backend.Controller;
 
