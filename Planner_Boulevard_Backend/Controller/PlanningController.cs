@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-using Schedule;
 using Schedule.Dtos;
 using Schedule.Interfaces;
 
@@ -23,6 +22,7 @@ public class PlanningController : ControllerBase
     {
         try
         {
+            Response.Headers.Add("Access-Control-Allow-Origin", "*");
             return _planningContainer.GetById(planningId);
         }
         catch (Exception e)
