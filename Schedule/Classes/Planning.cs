@@ -9,25 +9,29 @@ public class Planning
     public DateTime Date { get; set; }
     public DateTime Time { get; set; }
     public string Weekday { get; set; }
-    public int Weeknumber { get; set; }
-    
-    //create constructor
-    public Planning(int planningId, DateTime date, DateTime time, string weekday, int weeknumber)
+    public int WeekNumber { get; set; }
+
+    public Planning()
     {
-        PlanningId = PlanningId;
+        
+    }
+    public Planning(int planningId, DateTime date, DateTime time, string weekday, int weekNumber)
+    {
+        PlanningId = planningId;
         Date = date;
         Time = time;
         Weekday = weekday;
-        Weeknumber = weeknumber;
+        WeekNumber = weekNumber;
     }
     
-    public string GetWeekday(DateTime date)
+    public string GetWeekDay(DateTime date)
     {
         DayOfWeek day = CultureInfo.InvariantCulture.Calendar.GetDayOfWeek(date);
+        Weekday = day.ToString();
         return day.ToString();
     }
     
-    private static int GetIso8601WeekOfYear(DateTime date)
+    public int GetIso8601WeekOfYear(DateTime date)
     {
         DayOfWeek day = CultureInfo.InvariantCulture.Calendar.GetDayOfWeek(date);
         if (day >= DayOfWeek.Monday && day <= DayOfWeek.Wednesday)
@@ -38,17 +42,25 @@ public class Planning
         return CultureInfo.InvariantCulture.Calendar.GetWeekOfYear(date, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday);
     }
 
-    private DateTime GetLastDateOfThisWeek()
+    public DateTime GetLastDateOfThisWeek()
     {
         DateTime date = DateTime.Now;
         DayOfWeek day = CultureInfo.InvariantCulture.Calendar.GetDayOfWeek(date);
+        int x = 0;
         while (day != DayOfWeek.Sunday)
         {
-            date.AddDays(1);
-            day++;
+            x++;
+            if (day == DayOfWeek.Saturday)
+            {
+                day = DayOfWeek.Sunday;
+            }
+            else
+            {
+                day++;
+            }
         }
 
-        return date;
+        return date.AddDays(x);
     }
 
     public DateTime GetEndDateFromWeekNumber(int selectedWeek)
@@ -69,17 +81,16 @@ public class Planning
         Date = date;
         Time = time;
         Weekday = weekday;
-        Weeknumber = weekNumber;
+        WeekNumber = weekNumber;
     }
     
-    //create constructor from dto
     public Planning(PlanningDto dto)
     {
         PlanningId = dto.PlanningId;
         Date = dto.Date;
         Time = dto.Time;
         Weekday = dto.Weekday;
-        Weeknumber = dto.WeekNumber;
+        WeekNumber = dto.WeekNumber;
     }
     
     public PlanningDto ToDto()
@@ -90,7 +101,7 @@ public class Planning
             Date = Date,
             Time = Time,
             Weekday = Weekday,
-            WeekNumber = Weeknumber
+            WeekNumber = WeekNumber
         };
     }
 }
