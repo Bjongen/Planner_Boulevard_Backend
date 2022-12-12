@@ -5,7 +5,7 @@ using Schedule.Dtos;
 namespace Tests;
 
 [TestClass]
-public class UnitTest1
+public class PlanningTest
 {
     [TestMethod]
     public void PlanningConstructor()
