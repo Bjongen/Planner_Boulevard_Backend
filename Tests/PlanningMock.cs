@@ -66,11 +66,11 @@ public class PlanningMock : IPlanningDal
     }
 
     //todo implement accountId
-    public List<PlanningDto> GetAllFromWorkerThisWeek(int AccountId, DateTime date)
+    public List<PlanningDto> GetAllFromWorkerThisWeek(int AccountId, DateTime dateBegin, DateTime dateEnd)
     {
         var returnList = new List<PlanningDto>();
         Planning planning = new Planning();
-        var weeknumber = planning.GetIso8601WeekOfYear(date);
+        var weeknumber = planning.GetIso8601WeekOfYear(dateBegin);
         foreach (var dto in PlanningList)
         {
             if (dto.WeekNumber == weeknumber && dto.PlanningId == AccountId)
