@@ -1,4 +1,7 @@
+using System.Data;
+using System.Data.SqlClient;
 using Microsoft.AspNetCore.Mvc;
+using Schedule;
 using Schedule.Dtos;
 using Schedule.Interfaces;
 
@@ -9,36 +12,21 @@ namespace Planner_Boulevard_Backend.Controller;
 public class PlanningController : ControllerBase
 {
     private readonly ILogger<PlanningController> _logger;
-    private IPlanningContainer _planningContainer;
+    private IPlanningContainer _planningContainer = new PlanningContainer(new PlanningDal());
 
     public PlanningController(ILogger<PlanningController> logger)
     {
         _logger = logger;
     }
-
+    
     [HttpGet]
-    [ActionName("PlanningGet")]
-    public PlanningDto Get([FromQuery] int planningId)
+    [ActionName("PlanningsGet")]
+    public List<PlanningDto> Get([FromQuery] int accountId)
     {
         try
         {
             Response.Headers.Add("Access-Control-Allow-Origin", "*");
-            return _planningContainer.GetById(planningId);
-        }
-        catch (Exception e)
-        {
-            _logger.LogError(e.Message);
-            return null;
-        }
-    }
-
-    [HttpGet]
-    [ActionName("PlanningsGet")]
-    public List<PlanningDto> Get([FromQuery] int accountId, [FromQuery] DateTime date)
-    {
-        try
-        {
-            return _planningContainer.GetAllFromWorkerThisWeek(accountId, date);
+            return _planningContainer.GetAllFromWorkerThisWeek(accountId);
         }
         catch (Exception e)
         {

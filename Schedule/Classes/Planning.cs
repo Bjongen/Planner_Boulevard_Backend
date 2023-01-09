@@ -5,11 +5,11 @@ namespace Schedule.Classes;
 
 public class Planning
 {
-    public int PlanningId { get; set; }
-    public DateTime Date { get; set; }
-    public DateTime Time { get; set; }
-    public string Weekday { get; set; }
-    public int WeekNumber { get; set; }
+    public int? PlanningId { get; set; }
+    public DateTime? Date { get; set; }
+    public DateTime? Time { get; set; }
+    public string? Weekday { get; set; }
+    public int? WeekNumber { get; set; }
 
     public Planning()
     {

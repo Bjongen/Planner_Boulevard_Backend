@@ -1,18 +1,17 @@
 using System.Data;
+using System.Data.SqlClient;
 using Dapper;
 using Schedule.Dtos;
+using Schedule.Interfaces;
 
 namespace Schedule;
 
-public class PlanningDal
+public class PlanningDal : IPlanningDal
 {
-    private IDbConnection _dbConnection;
-
-    public PlanningDal(IDbConnection dbConnecion)
-    {
-        _dbConnection = dbConnecion;
-    }
-
+    private IDbConnection _dbConnection =
+        new SqlConnection("Server=mssqlstud.fhict.local;Uid=dbi488751;Database=dbi488751;Pwd=Bjongen2003;");
+        
+    
     public List<PlanningDto> GetAll()
     {
         const string sql = "Select * From Planning;";
@@ -68,18 +67,20 @@ public class PlanningDal
         }
     }
 
-    public List<PlanningDto> GetAllFromWorkerThisWeek(int accountId, DateTime date)
+    public List<PlanningDto> GetAllFromWorkerThisWeek(int accountId, DateTime dateBegin, DateTime dateEnd)
     {
-        const string sql = "Select * From Planning Where AccountId = @accountId" +
-                           "And Date between @date And @date-6";
+        const string sql = "Select * From Planning Where AccountId = @accountId " +
+                           "And Date between @dateBegin And @dateEnd;";
         try
         {
             using (_dbConnection)
             {
+                
                 return _dbConnection.Query<PlanningDto>(sql, new
                 {
                     accountId,
-                    date
+                    dateBegin,
+                    dateEnd
                 }).ToList();
             }
         }

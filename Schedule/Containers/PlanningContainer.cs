@@ -1,4 +1,5 @@
-﻿using Schedule.Dtos;
+﻿using Schedule.Classes;
+using Schedule.Dtos;
 using Schedule.Interfaces;
 
 namespace Schedule;
@@ -35,9 +36,12 @@ public class PlanningContainer : IPlanningContainer
         return _planningDal.GetAllFromThisWeek(date);
     }
 
-    public List<PlanningDto> GetAllFromWorkerThisWeek(int accountId, DateTime date)
+    public List<PlanningDto> GetAllFromWorkerThisWeek(int accountId)
     {
-        return _planningDal.GetAllFromWorkerThisWeek(accountId, date);
+        var planning = new Planning();
+        var dateEnd = planning.GetLastDateOfThisWeek();
+        var dateBegin = dateEnd.Subtract(new TimeSpan(6, 0, 0, 0));
+        return _planningDal.GetAllFromWorkerThisWeek(accountId, dateBegin, dateEnd);
     }
 
     public int CreatePlanning(PlanningDto planningDto, int accountId)

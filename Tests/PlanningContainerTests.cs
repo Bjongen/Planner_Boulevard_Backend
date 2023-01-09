@@ -26,7 +26,7 @@ public class PlanningContainer
         //arrange
         var mock = new PlanningMock();
         //act
-        var planningDto = mock.GetById(mock.PlanningList[^1].PlanningId);
+        var planningDto = mock.GetById((int)mock.PlanningList[^1].PlanningId);
         //assert
         Assert.AreEqual(planningDto.PlanningId, mock.PlanningList[^1].PlanningId);
         Assert.AreEqual(planningDto.Date, mock.PlanningList[^1].Date);
@@ -41,15 +41,15 @@ public class PlanningContainer
         //arrange
         var mock = new PlanningMock();
         //act
-        var dtos = mock.GetAllFromThisWeek(mock.PlanningList[^1].Date);
+        var dtos = mock.GetAllFromThisWeek((DateTime)mock.PlanningList[^1].Date);
         //assert
         foreach (var dto in dtos)
         {
-            Assert.AreEqual(dto.PlanningId, mock.PlanningList[dto.PlanningId - 1].PlanningId);
-            Assert.AreEqual(dto.Date, mock.PlanningList[dto.PlanningId - 1].Date);
-            Assert.AreEqual(dto.Time, mock.PlanningList[dto.PlanningId - 1].Time);
-            Assert.AreEqual(dto.Weekday, mock.PlanningList[dto.PlanningId - 1].Weekday);
-            Assert.AreEqual(dto.WeekNumber, mock.PlanningList[dto.PlanningId - 1].WeekNumber);
+            Assert.AreEqual(dto.PlanningId, mock.PlanningList[(int)(dto.PlanningId - 1)].PlanningId);
+            Assert.AreEqual(dto.Date, mock.PlanningList[(int)(dto.PlanningId - 1)].Date);
+            Assert.AreEqual(dto.Time, mock.PlanningList[(int)(dto.PlanningId - 1)].Time);
+            Assert.AreEqual(dto.Weekday, mock.PlanningList[(int)(dto.PlanningId - 1)].Weekday);
+            Assert.AreEqual(dto.WeekNumber, mock.PlanningList[(int)(dto.PlanningId - 1)].WeekNumber);
         }
     }
 
