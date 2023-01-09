@@ -1,5 +1,4 @@
-using System.Data;
-using System.Data.SqlClient;
+
 using Microsoft.AspNetCore.Mvc;
 using Schedule;
 using Schedule.Dtos;

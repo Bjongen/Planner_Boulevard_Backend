@@ -39,7 +39,7 @@ public class PlanningTest
         //Act
         var planning = new Planning(Date, Time, Weekday, WeekNumber);
         //Assert
-        Assert.AreEqual(0, planning.PlanningId);
+        Assert.AreEqual(null, planning.PlanningId);
         Assert.AreEqual(Date, planning.Date);
         Assert.AreEqual(Time, planning.Time);
         Assert.AreEqual(Weekday, planning.Weekday);
