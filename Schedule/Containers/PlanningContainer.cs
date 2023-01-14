@@ -1,4 +1,5 @@
-﻿using Schedule.Classes;
+﻿using Microsoft.VisualBasic.CompilerServices;
+using Schedule.Classes;
 using Schedule.Dtos;
 using Schedule.Interfaces;
 
@@ -41,7 +42,13 @@ public class PlanningContainer : IPlanningContainer
         var planning = new Planning();
         var dateEnd = planning.GetLastDateOfThisWeek();
         var dateBegin = dateEnd.Subtract(new TimeSpan(6, 0, 0, 0));
-        return _planningDal.GetAllFromWorkerThisWeek(accountId, dateBegin, dateEnd);
+        List<PlanningDto> planningDtos = _planningDal.GetAllFromWorkerThisWeek(accountId, dateBegin, dateEnd);
+        foreach (var dto in planningDtos)
+        {
+            planning.Weekday = planning.GetWeekDay(dto.Date.Value);
+            dto.Weekday = planning.Weekday;
+        }
+        return planningDtos;
     }
 
     public int CreatePlanning(PlanningDto planningDto, int accountId)
